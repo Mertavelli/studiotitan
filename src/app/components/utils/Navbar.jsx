@@ -1,15 +1,40 @@
 import { GiAbstract086, GiAbstract049, GiAbstract080 } from "react-icons/gi";
+import { useEffect, useState } from "react";
 
 export default function Navbar({ isOpen, setIsOpen }) {
+    const [iconSize, setIconSize] = useState(40);
+
+    useEffect(() => {
+      const updateSize = () => {
+        const width = window.innerWidth;
+        if (width < 640) {
+          setIconSize(25); // mobile
+        } else if (width < 811) {
+          setIconSize(35); // tablet
+        } else {
+          setIconSize(40); // desktop
+        }
+      };
+  
+      updateSize(); // set once on mount
+      window.addEventListener("resize", updateSize);
+      return () => window.removeEventListener("resize", updateSize);
+    }, []);
+
     return (
-        <div className="flex justify-between items-center py-2">
-            <div className="flex gap-4">
-                <GiAbstract086 size={40} />
-                <GiAbstract049 size={40} />
-                <GiAbstract080 size={40} />
+        <div className="flex justify-between items-center py-5">
+            <div className="flex gap-2 items-center">
+                <GiAbstract086 size={iconSize} />
+                <GiAbstract049 size={iconSize} />
+                <GiAbstract080 size={iconSize} />
             </div>
 
-            <button onClick={() => setIsOpen(true)} className="text-blue border border-blue p-2 font-black rounded-lg text-xl hover:text-black hover:bg-blue transition-all cursor-pointer">CONTACT</button>
+
+            <button
+                onClick={() => setIsOpen(true)}
+                className="text-accent border border-accent font-black rounded-xl transition-all cursor-pointer hover:text-black hover:bg-accent text-xs sm:text-lg lg:text-3xl lg:p-2">
+                CONTACT
+            </button>
         </div>
-    )
+    );
 }

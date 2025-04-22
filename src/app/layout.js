@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import BreakpointOverlay from "./components/utils/BreakpointOverlay";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,10 +23,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="px-8 py-5">
+        <div className="px-10 h-screen w-screen overflow-hidden">
           {children}
         </div>
-
+        <BreakpointOverlay />
       </body>
     </html>
   );

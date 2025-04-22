@@ -14,7 +14,31 @@ export const mockProjects = [
                 autoPlay: true,
                 muted: true,
                 loop: true
-            }
+            },
+            {
+                src: "https://videos.ctfassets.net/bwpwtlijv9w2/4zHAlkinMEnTDBoxE0Hd8p/4a9356d3f77304b4b768c507943f3048/StudioFreight-Hyperbolic-1.mp4",
+                span: 1,
+                type: "video",
+                autoPlay: true,
+                muted: true,
+                loop: true
+            },
+            {
+                src: "https://videos.ctfassets.net/bwpwtlijv9w2/4zHAlkinMEnTDBoxE0Hd8p/4a9356d3f77304b4b768c507943f3048/StudioFreight-Hyperbolic-1.mp4",
+                span: 1,
+                type: "video",
+                autoPlay: true,
+                muted: true,
+                loop: true
+            },
+            {
+                src: "https://videos.ctfassets.net/bwpwtlijv9w2/4zHAlkinMEnTDBoxE0Hd8p/4a9356d3f77304b4b768c507943f3048/StudioFreight-Hyperbolic-1.mp4",
+                span: 2,
+                type: "video",
+                autoPlay: true,
+                muted: true,
+                loop: true
+            },
         ]
 
     },
