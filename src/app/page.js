@@ -9,11 +9,13 @@ import React, { useState, useEffect, useRef } from "react";
 import Inquiry from "./components/modals/Inquiry";
 import { mockProjects } from "./components/mockProjects";
 import gsap from "gsap";
+import Diashow from "./components/modals/Diashow";
 
 export default function Home() {
-  const [projectName, setProjectName] = useState(mockProjects[0].name)
+  const [project, setProject] = useState(mockProjects[0])
   const [isOpen, setIsOpen] = useState(false)
   const overlayRef = useRef(null);
+  const [openDiashow, setOpenDiashow] = useState(false)
 
   useEffect(() => {
     if (isOpen) {
@@ -29,6 +31,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
+      {openDiashow && (
+        <Diashow project={project} openDiashow={openDiashow} setOpenDiashow={setOpenDiashow} />
+      )}
+
       {isOpen && (
         <>
           <Inquiry isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -45,7 +51,7 @@ export default function Home() {
       <Divider />
 
       <h1
-        className="font-black text-[clamp(4rem,9vw,20rem)] text-center leading-[1] tracking-tight -my-5 3xl:-my-10 sm:whitespace-nowrap"
+        className="font-black text-[clamp(4.75rem,9vw,20rem)] text-center leading-[1] tracking-tight -my-3 lg:-my-5 3xl:-my-10 sm:whitespace-nowrap"
         style={{ transform: 'scaleX(1.55) scaleY(0.7)', transformOrigin: 'center' }}
       >
         STUDIO TITAN
@@ -55,9 +61,9 @@ export default function Home() {
 
       <div className="grid grid-cols-4 h-[70vh] flex-grow overflow-hidden">
         <About />
-        <Projects projectName={projectName} setProjectName={setProjectName} />
+        <Projects activeProject={project} setProject={setProject} />
         <div className="col-span-2 h-full overflow-hidden">
-          <Details projectName={projectName} />
+          <Details project={project} openDiashow={openDiashow} setOpenDiashow={setOpenDiashow} />
         </div>
       </div>
 

@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="px-10 h-screen w-screen overflow-hidden">
+        <div className="lg:px-10 px-2 h-screen w-screen overflow-hidden">
           {children}
         </div>
         <BreakpointOverlay />

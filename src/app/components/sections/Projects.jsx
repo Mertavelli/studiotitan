@@ -1,16 +1,16 @@
 import { mockProjects } from "../mockProjects"
 
-export default function Projects({ projectName, setProjectName }) {
+export default function Projects({ activeProject, setProject }) {
 
     const handleClick = (project) => {
-        setProjectName(project.name)
+        setProject(project)
     }
 
     return (
         <div className="md:m-3 lg:m-5 md:px-3 lg:px-8 border-x border-white/50 h-full overflow-y-auto">
             <h2 className="mb-8">PROJECTS</h2>
             {mockProjects.map((project, index) => {
-                const isActive = projectName === project.name;
+                const isActive = activeProject.name === project.name;
 
                 return (
                     <button

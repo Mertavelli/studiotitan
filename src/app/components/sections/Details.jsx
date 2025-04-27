@@ -1,14 +1,10 @@
 import Link from "next/link"
 import { MdArrowOutward } from "react-icons/md";
-import { mockProjects } from "../mockProjects";
 import React, { useState } from "react";
 import { LiaExpandSolid } from "react-icons/lia";
-import Diashow from "../modals/Diashow";
 
-export default function Details({ projectName }) {
-    const project = mockProjects.find(p => p.name === projectName);
+export default function Details({ project, openDiashow, setOpenDiashow }) {
     const [infoOpen, setInfoOpen] = useState(false);
-    const [openDiashow, setOpenDiashow] = useState(false)
 
     const handleInfo = () => {
         setInfoOpen(!infoOpen);
@@ -18,10 +14,6 @@ export default function Details({ projectName }) {
 
     return (
         <>
-            {openDiashow && (
-                <Diashow project={project} setOpenDiashow={setOpenDiashow}/>
-            )}
-
             <div className="h-full overflow-hidden md:pl-3 lg:pl-5">
                 <div className="flex items-center justify-between my-5">
                     <h2 className="mb-8">PROJECT DETAIL</h2>
