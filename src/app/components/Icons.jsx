@@ -1,6 +1,7 @@
 import { LiaExpandSolid } from "react-icons/lia";
 import { TfiPlus } from "react-icons/tfi";
 import useWindowSize from "./hooks/useWindowSize";
+import { MdArrowOutward } from "react-icons/md";
 
 function ResponsiveIcon({
     Icon,
@@ -22,4 +23,8 @@ export function LiaExpandSolidIcon(props) {
 
 export function TfiPlusIcon(props) {
     return <ResponsiveIcon Icon={TfiPlus} {...props} />;
+}
+
+export function MdArrowOutwardIcon(props) {
+    return <ResponsiveIcon Icon={MdArrowOutward} {...props} />;
 }

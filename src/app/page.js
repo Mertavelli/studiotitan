@@ -1,13 +1,11 @@
 'use client';
 
 import React, { useEffect, useState, Suspense } from "react";
-
-// Dynamischer Import der Komponenten
 const Desktop = React.lazy(() => import("./pages/Desktop"));
 const Mobile = React.lazy(() => import("./pages/Mobile"));
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -22,6 +20,10 @@ export default function Home() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  if (isMobile === null) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

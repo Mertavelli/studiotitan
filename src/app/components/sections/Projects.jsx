@@ -1,31 +1,51 @@
 import { mockProjects } from "../mockProjects";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Details from "./Details";
 import { LiaExpandSolidIcon } from "../Icons";
+import gsap from "gsap";
 
 export default function Projects({ activeProject, setProject }) {
     const [isMobile, setIsMobile] = useState(false);
+    const [openProject, setOpenProject] = useState(null); // ⬅️ Speichert das geöffnete Projekt
+    const mobileRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 1024);
         };
-
         handleResize();
-
         window.addEventListener("resize", handleResize);
-
         return () => {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
 
+    useEffect(() => {
+        if (openProject && mobileRef.current) {
+            gsap.fromTo(mobileRef.current,
+                { height: 0, opacity: 0 },
+                { height: "auto", opacity: 1, duration: 0.5, ease: "power2.out" }
+            );
+        } else if (mobileRef.current) {
+            gsap.to(mobileRef.current, {
+                height: 0,
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.in",
+                onComplete: () => setOpenProject(null) // ⬅️ Erst nach der Animation entfernen
+            });
+        }
+    }, [openProject]);
+
     const handleClick = (project) => {
-        if (activeProject.name === project.name) {
-            // If the clicked project is already active, close it (set activeProject to null)
-            setProject({}); // or setProject(null) if you prefer
+        if (openProject && openProject.name === project.name) {
+            // Schließen
+            setOpenProject(null);
+            setProject({});
         } else {
-            setProject(project); // Set the clicked project as active
+            // Öffnen
+            setOpenProject(project);
+            setProject(project);
         }
     };
 
@@ -36,7 +56,6 @@ export default function Projects({ activeProject, setProject }) {
                     <h2 className="mb-8">PROJECTS</h2>
                     {mockProjects.map((project, index) => {
                         const isActive = activeProject.name === project.name;
-
                         return (
                             <button
                                 onClick={() => handleClick(project)}
@@ -57,17 +76,17 @@ export default function Projects({ activeProject, setProject }) {
                     })}
                 </div>
             )}
+
             {isMobile && (
                 <div className="h-full">
                     <h2>PROJECTS</h2>
                     {mockProjects.map((project, index) => {
                         const isActive = activeProject.name === project.name;
-
                         return (
                             <div key={index}>
                                 <button
                                     onClick={() => handleClick(project)}
-                                    className="grid grid-cols-4 border-b border-white/50 w-full transition-all duration-300 ease-in-out transform py-5"
+                                    className={`grid grid-cols-4 ${isActive ? "" : "border-b border-white/50"} w-full transition-all duration-300 ease-in-out transform py-5`}
                                 >
                                     <div className="col-span-2">
                                         {isActive ? (
@@ -78,15 +97,18 @@ export default function Projects({ activeProject, setProject }) {
                                             <h3 className="text-left whitespace-nowrap">{project.name}</h3>
                                         )}
                                     </div>
-
                                     <label className="text-left">{project.category}</label>
-
                                     <div className="flex justify-end items-center">
                                         <LiaExpandSolidIcon className="text-accent" />
                                     </div>
                                 </button>
 
-                                {isActive && <Details project={project} />}
+                                {/* Jetzt wird das Div nicht sofort entfernt */}
+                                {openProject && openProject.name === project.name && (
+                                    <div ref={mobileRef} className="overflow-hidden">
+                                        <Details project={project} />
+                                    </div>
+                                )}
                             </div>
                         );
                     })}
