@@ -66,7 +66,7 @@ export default function Footer() {
 
             {isMobile && (
                 <div className="grid grid-cols-1 gap-10 pt-5">
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-2 px-4">
                         <a href="/capabilities-deck.pdf" download className="text-accent flex items-center cursor-pointer whitespace-nowrap">
                             <label className="cursor-pointer">CAPABILITIES DECK</label>
                             <IoIosArrowRoundDownIcon />
@@ -75,7 +75,7 @@ export default function Footer() {
                         <label className="text-white/50">© 2025</label>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-2 px-4">
                         <Link href="/">
                             <label className="underline uppercase">GITHUB</label>
                         </Link>
@@ -102,7 +102,7 @@ export default function Footer() {
                         </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-2">
+                    <div className="grid grid-cols-1 gap-2 px-4">
                         <Link href="/">
                             <label className="underline uppercase">P: +1 380.238.9363</label>
                         </Link>

@@ -24,5 +24,13 @@
 ## 8. **Möglicherweise Tailwind Outsourcing**  
 - Überprüfen, ob das Styling in separate Tailwind-Konfigurationen oder ein externes System ausgelagert werden kann.
 
-## 9. **Animationen Fixen**  
+## 9. **Animationen Fixen** (Process)
 - Alle Animationsfehler beheben und sicherstellen, dass sie auf allen Geräten und Bildschirmgrößen reibungslos laufen.
+
+## 10. **Imports Reinigen**
+
+## 11. **Padding Prüfen**
+
+## 12. **Handy macht Video automatisch auf vollbild** (Process)
+
+## 13. **Initiales Rendern optimieren** (Process)

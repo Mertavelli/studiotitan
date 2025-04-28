@@ -3,7 +3,7 @@ import { IoIosArrowRoundForwardIcon } from "../Icons"
 export default function About() {
 
     return (
-        <div className="flex flex-col gap-5 lg:gap-5 lg:m-5 ml-0 h-full overflow-y-auto lg:pb-10">
+        <div className="flex flex-col gap-5 lg:gap-5 lg:m-5 ml-0 h-full overflow-y-auto lg:pb-10 px-4">
             <h2 className="lg:mb-8">ABOUT</h2>
             <p>Studio Freight is an independent creative studio building brands, digital experiences, and technology to move missions forward.</p>
             <br />

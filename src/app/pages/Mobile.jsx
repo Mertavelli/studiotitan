@@ -1,49 +1,26 @@
 'use client'
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState } from "react"
 import Navbar from "../components/utils/Navbar"
 import Divider from "../components/utils/Divider"
 import Footer from "../components/utils/Footer"
-import Projects from "../components/sections/Projects"
-import gsap from "gsap";
-import { mockProjects } from "../components/mockProjects"
+import ProjectsMobile from "../components/sections/ProjectsMobile"
 import About from "../components/sections/About"
-import Inquiry from "../components/modals/Inquiry"
+import InquiryMobile from "../components/modals/InquiryMobile"
 
 export default function Mobile() {
     const [isOpen, setIsOpen] = useState(false)
-    const overlayRef = useRef(null);
     const [project, setProject] = useState({})
-
-    useEffect(() => {
-        if (isOpen) {
-            gsap.fromTo(
-                overlayRef.current,
-                { opacity: 0 },
-                { opacity: 0.8, duration: 0.6 }
-            );
-        } else {
-            gsap.to(overlayRef.current, { opacity: 0, duration: 0.6 });
-        }
-    }, [isOpen]);
 
     return (
         <div className={`flex flex-col ${isOpen ? "h-screen" : ""}`}>
 
             {isOpen && (
-                <>
-                    <Inquiry isOpen={isOpen} setIsOpen={setIsOpen} />
-                    <div
-                        ref={overlayRef}
-                        className="fixed inset-0 bg-black z-40 pointer-events-none"
-                        style={{ opacity: 0 }}
-                    />
-                </>
+                <InquiryMobile isOpen={isOpen} setIsOpen={setIsOpen} />
             )}
-
 
             <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
 
-            <Divider />
+            <Divider className={"px-4"}/>
 
             <h1
                 className="font-black text-[clamp(4rem,9vw,20rem)] text-center leading-[0.85] tracking-[-2px] -my-3 lg:-my-5 3xl:-my-10 lg:whitespace-nowrap"
@@ -52,15 +29,16 @@ export default function Mobile() {
                 STUDIO TITAN
             </h1>
 
-            <Divider />
+            <Divider className={"px-4"}/>
 
             <div className="flex flex-col gap-5 mb-5">
+                {/* Bild ohne px-4 */}
                 <img className="w-screen my-5" src="https://studiofreight.com/_next/image?url=%2Fmobile-temp-images%2Ftetsuo.jpg&w=1200&q=90" />
 
-                <Projects activeProject={project} setProject={setProject} />
+                <ProjectsMobile activeProject={project} setProject={setProject} />
 
                 <div className="relative w-full mb-5">
-                    {/* Das Bild */}
+                    {/* Das Bild ohne px-4 */}
                     <img
                         src="https://studiofreight.com/_next/image?url=%2Fmobile-temp-images%2Fsf-game-boy.png&w=1200&q=90"
                         className="w-full h-auto object-cover"
@@ -73,9 +51,7 @@ export default function Mobile() {
                 <About />
             </div>
 
-
-
-            <Divider />
+            <Divider className={"px-4"}/>
 
             <Footer />
         </div>

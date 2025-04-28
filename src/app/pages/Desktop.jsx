@@ -1,11 +1,11 @@
 import Divider from "../components/utils/Divider";
 import Navbar from "../components/utils/Navbar";
 import About from "../components/sections/About";
-import Projects from "../components/sections/Projects";
+import Projects from "../components/sections/ProjectsMobile";
 import Details from "../components/sections/Details";
 import Footer from "../components/utils/Footer";
 import React, { useState, useEffect, useRef } from "react";
-import Inquiry from "../components/modals/Inquiry";
+import InquiryDesktop from "../components/modals/InquiryDesktop";
 import { mockProjects } from "../components/mockProjects";
 import gsap from "gsap";
 import Diashow from "../components/modals/Diashow";
@@ -36,7 +36,7 @@ export default function Desktop() {
 
             {isOpen && (
                 <>
-                    <Inquiry isOpen={isOpen} setIsOpen={setIsOpen} />
+                    <InquiryDesktop isOpen={isOpen} setIsOpen={setIsOpen} />
                     <div
                         ref={overlayRef}
                         className="fixed inset-0 bg-black z-40 pointer-events-none"

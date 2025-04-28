@@ -134,6 +134,7 @@ export default function Details({ project, openDiashow, setOpenDiashow }) {
                                                         autoPlay={media.autoPlay ?? false}
                                                         muted={media.muted ?? true}
                                                         loop={media.loop ?? true}
+                                                        playsInline
                                                         className="w-full h-auto rounded-xl object-cover"
                                                     />
                                                 ) : (
@@ -157,6 +158,7 @@ export default function Details({ project, openDiashow, setOpenDiashow }) {
                                                                     autoPlay={m.autoPlay ?? false}
                                                                     muted={m.muted ?? true}
                                                                     loop={m.loop ?? true}
+                                                                    playsInline
                                                                     className="w-full h-auto rounded-xl object-cover"
                                                                 />
                                                             ) : (
