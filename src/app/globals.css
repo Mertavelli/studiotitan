@@ -20,7 +20,7 @@ p {
 }
 
 h2 {
-    @apply font-black text-white/55 lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl;
+    @apply font-black text-white/55 text-base lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl;
   }
 
 h3 {
@@ -30,10 +30,3 @@ h3 {
 label {
   @apply text-xs lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl font-secondary whitespace-nowrap;
 }
-/* @font-face {
-    font-family: Oswald;
-    font-style: normal;
-    font-weight: 200 700;
-    font-display: swap;
-    src: url("/fonts/Oswald.woff2") format("woff2");
-  } */

@@ -7,6 +7,7 @@ import Projects from "../components/sections/Projects"
 import gsap from "gsap";
 import { mockProjects } from "../components/mockProjects"
 import About from "../components/sections/About"
+import Inquiry from "../components/modals/Inquiry"
 
 export default function Mobile() {
     const [isOpen, setIsOpen] = useState(false)
@@ -26,7 +27,19 @@ export default function Mobile() {
     }, [isOpen]);
 
     return (
-        <div className="flex flex-col">
+        <div className={`flex flex-col ${isOpen ? "h-screen" : ""}`}>
+
+            {isOpen && (
+                <>
+                    <Inquiry isOpen={isOpen} setIsOpen={setIsOpen} />
+                    <div
+                        ref={overlayRef}
+                        className="fixed inset-0 bg-black z-40 pointer-events-none"
+                        style={{ opacity: 0 }}
+                    />
+                </>
+            )}
+
 
             <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
 

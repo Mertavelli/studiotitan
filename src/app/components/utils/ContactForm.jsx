@@ -4,6 +4,7 @@ import Selection from "./Selection"
 import Textarea from "./Textarea"
 import DropDown from "./DropDown"
 import emailjs from 'emailjs-com';
+import useIsMobile from "../hooks/useIsMobile"
 
 export default function ContactForm({ setIsSent }) {
     const [name, setName] = useState("")
@@ -19,7 +20,7 @@ export default function ContactForm({ setIsSent }) {
         campain: false,
         other: false,
     });
-
+    const isMobile = useIsMobile();
 
     const handelSubmit = () => {
         const projectType = Object.entries(isActive)
@@ -60,24 +61,41 @@ export default function ContactForm({ setIsSent }) {
     }
 
     return (
-        <div className="grid grid-cols-2 gap-10">
-            <Input label={"YOUR NAME"} type={"text"} value={name} setValue={setName} />
-            <Input label={"YOUR EMAIL"} type={"email"} value={email} setValue={setEmail} />
-            <div className="col-span-2">
-                <Input label={"COMPANY NAME"} type={"text"} value={company} setValue={setCompany} />
-            </div>
-            <div className="col-span-2">
-                <Selection isActive={isActive} setIsActive={setIsActive} />
-            </div>
-            <div className="col-span-2">
-                <Textarea label={"PROJECT DESCRIPTION"} placeholder={"Details About Your Project..."} value={message} setValue={setMessage} />
-            </div>
+        <>
+            {!isMobile && (
+                <div className="grid grid-cols-2 gap-10">
+                    <Input label={"YOUR NAME"} type={"text"} value={name} setValue={setName} />
+                    <Input label={"YOUR EMAIL"} type={"email"} value={email} setValue={setEmail} />
+                    <div className="col-span-2">
+                        <Input label={"COMPANY NAME"} type={"text"} value={company} setValue={setCompany} />
+                    </div>
+                    <div className="col-span-2">
+                        <Selection isActive={isActive} setIsActive={setIsActive} />
+                    </div>
+                    <div className="col-span-2">
+                        <Textarea label={"PROJECT DESCRIPTION"} placeholder={"Details About Your Project..."} value={message} setValue={setMessage} />
+                    </div>
 
-            <DropDown selected={selected} setSelected={setSelected} />
-            <Input label={"TIMELINE EXPECTATION"} type={"text"} value={timeline} setValue={setTimeline} />
+                    <DropDown selected={selected} setSelected={setSelected} />
+                    <Input label={"TIMELINE EXPECTATION"} type={"text"} value={timeline} setValue={setTimeline} />
 
-            <button onClick={handelSubmit} className="col-span-2 rounded-xl border border-accent text-accent font-black p-5 text-2xl cursor-pointer hover:bg-accent hover:text-black transition-all">SHIP IT</button>
+                    <button onClick={handelSubmit} className="col-span-2 rounded-xl border border-accent text-accent font-black p-5 text-2xl cursor-pointer hover:bg-accent hover:text-black transition-all">SHIP IT</button>
+                </div>
+            )}
 
-        </div>
+            {isMobile && (
+                <div className="flex flex-col gap-5">
+                    <Input label={"YOUR NAME"} type={"text"} value={name} setValue={setName} />
+                    <Input label={"YOUR EMAIL"} type={"email"} value={email} setValue={setEmail} />
+                    <Input label={"COMPANY NAME"} type={"text"} value={company} setValue={setCompany} />
+                    <Selection isActive={isActive} setIsActive={setIsActive} />
+                    <Textarea label={"PROJECT DESCRIPTION"} placeholder={"Details About Your Project..."} value={message} setValue={setMessage} />
+                    <DropDown selected={selected} setSelected={setSelected} />
+                    <Input label={"TIMELINE EXPECTATION"} type={"text"} value={timeline} setValue={setTimeline} />
+                    <button onClick={handelSubmit} className="col-span-2 rounded-xl border border-accent text-accent font-black p-3 lg:p-5 text-lg lg:text-2xl cursor-pointer hover:bg-accent hover:text-black transition-all">SHIP IT</button>
+                </div>
+            )}
+        </>
+
     )
 }

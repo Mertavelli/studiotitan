@@ -17,26 +17,26 @@ export default function DropDown({ selected, setSelected }) {
 
     return (
         <div className="flex flex-col gap-2 relative">
-            <label className="text-white/50">BUDGET EXPECTATION *</label>
+            <label className="text-white/50 text-xs lg:text-base">BUDGET EXPECTATION *</label>
             <div>
                 <button
                     type="button"
                     onClick={() => setIsOpen(!isOpen)}
-                    className={`w-full text-left border focus:outline-0 rounded-xl p-5 font-black uppercase text-2xl placeholder:font-black placeholder:text-white/50 placeholder:text-2xl ${selected ? "border-blue" : ""
-                        } text-white`}
+                    className={`w-full text-left border focus:outline-0 rounded-xl p-3 lg:p-5 uppercase font-black text-white/50 text-lg lg:text-2xl ${selected ? "border-accent" : ""} ${selected ? "text-white" : "text-white/50"}`}
                 >
-                    {selected || (
-                        <span className="text-white/50">SELECT ONE</span>
-                    )}
+                    {/* Wenn keine Auswahl getroffen wurde, zeige 'SELECT ONE' in grau, andernfalls die Auswahl in weiß */}
+                    <span className={selected ? "text-white" : "text-white/50"}>
+                        {selected ? selected : "SELECT ONE"}
+                    </span>
                 </button>
 
                 {isOpen && (
-                    <ul className="absolute z-10 mt-2 w-full bg-black border border-white/20 rounded-xl shadow-xl">
+                    <ul className="absolute z-10 mt-2 w-full bg-black border border-white/20 rounded-xl">
                         {options.map((option, index) => (
                             <li
                                 key={index}
                                 onClick={() => handleSelect(option)}
-                                className="p-5 hover:bg-white/10 cursor-pointer font-black uppercase text-white text-2xl"
+                                className="p-3 lg:p-5 hover:bg-white/10 cursor-pointer font-black uppercase text-white text-lg lg:text-2xl"
                             >
                                 {option}
                             </li>
