@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {/* Meta Tag für Browserfarbe */}
-        <meta name="theme-color" content="#ff007f" />
+        <meta name="theme-color" content="#ff00ff" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`} // ⬅️ Manrope einfügen
