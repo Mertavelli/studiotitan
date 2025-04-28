@@ -3,9 +3,6 @@
 ## 1. **Icon Sizes**  
 - Überprüfen und anpassen der Icon-Größen für Konsistenz in der gesamten Anwendung.
 
-## 2. **Mobile Bilder**  
-- Padding bei Bildern auf mobilen Geräten entfernen, um eine optimierte Darstellung zu gewährleisten.
-
 ## 3. **CMS Integration**  
 - CMS (Content Management System) in das Projekt integrieren und konfigurieren.
 
@@ -31,10 +28,8 @@
 
 ## 11. **Padding Prüfen**
 
-## 13. **Initiales Rendern optimieren** (Process)
+## 14. **Lenis hinzufügen Desktop** (process)
 
-## 14. **Lenis hinzufügen Desktop**
-
-## 15. **Noise**
-
-## 16. **Browser Color pink** (Process)
+## Footer Desktop Padding anpassen
+## Inquery Desktop anpassen
+## Marquee desktop hinzufügen

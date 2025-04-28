@@ -16,17 +16,17 @@ body {
 }
 
 p {
-  @apply lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl;
+  @apply lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl;
 }
 
 h2 {
-    @apply font-black text-white/55 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl uppercase;
+    @apply font-black text-white/55 text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl uppercase;
   }
 
 h3 {
-  @apply font-black text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl uppercase;
+  @apply font-black text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl uppercase;
 }
 
 label {
-  @apply text-xs lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl font-secondary whitespace-nowrap;
+  @apply text-xs lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl font-secondary whitespace-nowrap cursor-pointer;
 }

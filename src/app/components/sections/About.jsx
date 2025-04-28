@@ -1,9 +1,17 @@
 import { IoIosArrowRoundForwardIcon } from "../Icons"
+//import Lenis from 'lenis'
 
 export default function About() {
+/*     const lenis = new Lenis({
+        autoRaf: true,
+    });
+
+    lenis.on('scroll', (e) => {
+        console.log(e);
+    }); */
 
     return (
-        <div className="flex flex-col gap-5 lg:gap-5 lg:m-5 ml-0 h-full overflow-y-auto lg:pb-10 px-4">
+        <div className="flex flex-col gap-5 h-full overflow-y-auto px-4 lg:py-10 lg:pl-0 lg:pr-5">
             <h2 className="lg:mb-8">ABOUT</h2>
             <p>Studio Freight is an independent creative studio building brands, digital experiences, and technology to move missions forward.</p>
             <br />

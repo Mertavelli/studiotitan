@@ -1,15 +1,16 @@
 'use client';
 
 import React, { Suspense } from "react";
+import dynamic from 'next/dynamic';
 import useIsMobile from "./components/hooks/useIsMobile";
-const Desktop = React.lazy(() => import("./pages/Desktop"));
-const Mobile = React.lazy(() => import("./pages/Mobile"));
+
+const Desktop = dynamic(() => import('./pages/Desktop'), { ssr: false });
+const Mobile = dynamic(() => import('./pages/Mobile'), { ssr: false });
 
 export default function Home() {
   const isMobile = useIsMobile();
 
   if (isMobile === undefined) {
-    // Besseres Loading-UI
     return (
       <div className="flex items-center justify-center min-h-screen bg-black">
         <h1 className="text-white text-2xl animate-pulse">Loading...</h1>

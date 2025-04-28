@@ -50,7 +50,7 @@ export default function ProjectsDesktop({ activeProject, setProject }) {
     };
 
     return (
-        <div className="md:m-3 lg:m-5 md:px-3 lg:px-8 h-full overflow-y-auto">
+        <div className="px-10 lg:py-10 h-full overflow-y-auto">
             <h2 className="mb-8">PROJECTS</h2>
             {mockProjects.map((project, index) => {
                 const isActive = activeProject.name === project.name;
@@ -58,7 +58,7 @@ export default function ProjectsDesktop({ activeProject, setProject }) {
                     <button
                         onClick={() => handleClick(project)}
                         key={index}
-                        className={`border-b border-white/50 flex justify-between items-center md:py-2 lg:py-5 w-full transition-all duration-300 ease-in-out transform ${isActive ? "translate-x-1" : "translate-x-0"}`}
+                        className={`border-b border-white/50 flex justify-between items-center md:py-2 lg:py-5 w-full transition-all duration-300 ease-in-out transform cursor-pointer ${isActive ? "translate-x-1" : "translate-x-0"}`}
                     >
                         {isActive ? (
                             <div className="flex items-center gap-2">

@@ -1,7 +1,7 @@
 import Divider from "../components/utils/Divider";
 import Navbar from "../components/utils/Navbar";
 import About from "../components/sections/About";
-import Projects from "../components/sections/ProjectsMobile";
+import ProjectsDesktop from "../components/sections/ProjectsDesktop";
 import Details from "../components/sections/Details";
 import Footer from "../components/utils/Footer";
 import React, { useState, useEffect, useRef } from "react";
@@ -29,7 +29,7 @@ export default function Desktop() {
     }, [isOpen]);
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col px-10">
             {openDiashow && (
                 <Diashow project={project} openDiashow={openDiashow} setOpenDiashow={setOpenDiashow} />
             )}
@@ -50,7 +50,7 @@ export default function Desktop() {
             <Divider />
 
             <h1
-                className="font-black text-[clamp(4.75rem,9vw,20rem)] text-center leading-[1] tracking-tight -my-3 lg:-my-5 3xl:-my-10 sm:whitespace-nowrap"
+                className="font-black text-[clamp(5rem,9.4vw,20rem)] text-center leading-[1] tracking-tight -my-3 lg:-my-5 3xl:-my-10 sm:whitespace-nowrap"
                 style={{ transform: 'scaleX(1.55) scaleY(0.7)', transformOrigin: 'center' }}
             >
                 STUDIO TITAN
@@ -58,10 +58,10 @@ export default function Desktop() {
 
             <Divider />
 
-            <div className="grid grid-cols-4 h-[70vh] flex-grow overflow-hidden">
+            <div className="grid grid-cols-4 h-[70vh] flex-grow overflow-hidden mt-5">
                 <About />
                 <div className="border-x border-white/50">
-                    <Projects activeProject={project} setProject={setProject} />
+                    <ProjectsDesktop activeProject={project} setProject={setProject} />
                 </div>
 
                 <div className="col-span-2 h-full overflow-hidden">

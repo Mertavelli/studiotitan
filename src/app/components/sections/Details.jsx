@@ -6,8 +6,16 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css/autoplay';
 import useIsMobile from "../hooks/useIsMobile";
+//import Lenis from 'lenis'
 
 export default function Details({ project, openDiashow, setOpenDiashow }) {
+
+/*   if (typeof window !== "undefined") {
+    const lenis = new Lenis({
+      autoRaf: true,
+    });
+  }
+ */
     const isMobile = useIsMobile();
 
     const [infoOpen, setInfoOpen] = useState(false);
@@ -22,8 +30,8 @@ export default function Details({ project, openDiashow, setOpenDiashow }) {
         <>
             {!isMobile && (
                 <>
-                    <div className="h-full overflow-hidden md:pl-3 lg:pl-5">
-                        <div className="flex items-center justify-between my-5">
+                    <div className="h-full overflow-hidden px-10 lg:py-10">
+                        <div className="flex items-center justify-between mb-5">
                             <h2 className="mb-8">PROJECT DETAIL</h2>
                             <div className="flex items-center gap-5 text-accent">
                                 <button
@@ -45,19 +53,19 @@ export default function Details({ project, openDiashow, setOpenDiashow }) {
 
                         <div className="overflow-y-auto h-[calc(100%-3rem)]">
                             {infoOpen && (
-                                <div className="max-w-2xl flex flex-col gap-5">
+                                <div className="max-w-3xl flex flex-col gap-10 pb-10">
                                     <p>{project.description}</p>
                                     <h2 className="subtitle">TESTIMONIAL</h2>
-                                    <p className="font-italic">{project.testimonial}</p>
-                                    <div className="grid grid-cols-2">
+                                    <p className="font-thin italic">{project.testimonial}</p>
+                                    <div className="grid grid-cols-2 gap-10">
                                         <div className="flex flex-col gap-5">
                                             <h2 className="subtitle">SERVICES</h2>
-                                            <p>{project.services}</p>
+                                            <h4 className="text-2xl uppercase">{project.services}</h4>
                                         </div>
 
                                         <div className="flex flex-col gap-5">
                                             <h2 className="subtitle">STACK</h2>
-                                            <p>{project.stack}</p>
+                                            <h4 className="text-2xl uppercase">{project.stack}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +101,7 @@ export default function Details({ project, openDiashow, setOpenDiashow }) {
                                         })}
                                     </button>
 
-                                    <div className="sticky bottom-15 w-full text-accent bg-gradient-to-t from-black to-transparent py-5">
+                                    <div className="sticky bottom-0 w-full text-accent bg-gradient-to-t from-black to-transparent py-5">
                                         <button onClick={() => setOpenDiashow(true)} className="flex items-center gap-3 cursor-pointer">
                                             <LiaExpandSolidIcon size={40} />
                                             <p className="text-white">ENLARGE</p>

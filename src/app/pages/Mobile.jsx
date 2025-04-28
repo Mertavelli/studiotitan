@@ -7,6 +7,14 @@ import ProjectsMobile from "../components/sections/ProjectsMobile"
 import About from "../components/sections/About"
 import InquiryMobile from "../components/modals/InquiryMobile"
 import InfinityMarquee from "../components/utils/InfinityMarquee"
+import dynamic from 'next/dynamic';
+const Noise = dynamic(
+    () => import('../components/utils/Noise').then(({ Noise }) => Noise),
+    {
+        ssr: false,
+    },
+)
+
 
 export default function Mobile() {
     const [isOpen, setIsOpen] = useState(false)
@@ -14,6 +22,7 @@ export default function Mobile() {
 
     return (
         <div className={`flex flex-col ${isOpen ? "h-screen" : ""}`}>
+            <Noise />
 
             {isOpen && (
                 <InquiryMobile isOpen={isOpen} setIsOpen={setIsOpen} />
