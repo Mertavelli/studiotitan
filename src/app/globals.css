@@ -20,11 +20,11 @@ p {
 }
 
 h2 {
-    @apply font-black text-white/55 text-base lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl;
+    @apply font-black text-white/55 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl uppercase;
   }
 
 h3 {
-  @apply font-black text-base lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl;
+  @apply font-black text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl uppercase;
 }
 
 label {

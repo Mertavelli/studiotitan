@@ -31,6 +31,10 @@
 
 ## 11. **Padding Prüfen**
 
-## 12. **Handy macht Video automatisch auf vollbild** (Process)
-
 ## 13. **Initiales Rendern optimieren** (Process)
+
+## 14. **Lenis hinzufügen Desktop**
+
+## 15. **Noise**
+
+## 16. **Browser Color pink** (Process)

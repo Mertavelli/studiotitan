@@ -6,6 +6,7 @@ import Footer from "../components/utils/Footer"
 import ProjectsMobile from "../components/sections/ProjectsMobile"
 import About from "../components/sections/About"
 import InquiryMobile from "../components/modals/InquiryMobile"
+import InfinityMarquee from "../components/utils/InfinityMarquee"
 
 export default function Mobile() {
     const [isOpen, setIsOpen] = useState(false)
@@ -20,16 +21,19 @@ export default function Mobile() {
 
             <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
 
-            <Divider className={"px-4"}/>
-
+            <Divider className={"px-4"} />
             <h1
                 className="font-black text-[clamp(4rem,9vw,20rem)] text-center leading-[0.85] tracking-[-2px] -my-3 lg:-my-5 3xl:-my-10 lg:whitespace-nowrap"
                 style={{ transform: 'scaleX(1.55) scaleY(0.7)', transformOrigin: 'center' }}
             >
                 STUDIO TITAN
             </h1>
+            <Divider className={"px-4"} />
 
-            <Divider className={"px-4"}/>
+            <div className="px-4 py-5">
+                <InfinityMarquee />
+            </div>
+
 
             <div className="flex flex-col gap-5 mb-5">
                 {/* Bild ohne px-4 */}
@@ -51,7 +55,7 @@ export default function Mobile() {
                 <About />
             </div>
 
-            <Divider className={"px-4"}/>
+            <Divider className={"px-4"} />
 
             <Footer />
         </div>
