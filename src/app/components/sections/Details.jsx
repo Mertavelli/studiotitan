@@ -5,24 +5,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css/autoplay';
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function Details({ project, openDiashow, setOpenDiashow }) {
-    const [isMobile, setIsMobile] = useState(false);
-
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 1024);
-        };
-
-        handleResize();
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+    const isMobile = useIsMobile();
 
     const [infoOpen, setInfoOpen] = useState(false);
 

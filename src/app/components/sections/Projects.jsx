@@ -3,22 +3,12 @@ import React, { useEffect, useState, useRef } from "react";
 import Details from "./Details";
 import { LiaExpandSolidIcon } from "../Icons";
 import gsap from "gsap";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function Projects({ activeProject, setProject }) {
-    const [isMobile, setIsMobile] = useState(false);
+    const isMobile = useIsMobile();
     const [openProject, setOpenProject] = useState(null); // ⬅️ Speichert das geöffnete Projekt
     const mobileRef = useRef(null);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 1024);
-        };
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
 
     useEffect(() => {
         if (openProject && mobileRef.current) {

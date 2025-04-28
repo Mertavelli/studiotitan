@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { LiaExpandSolid } from "react-icons/lia";
+import { LiaExpandSolidIcon } from "../Icons";
 import { gsap } from "gsap";
 
 const faqData = [
@@ -84,7 +84,7 @@ export default function FAQ() {
                             className="text-accent transition-transform"
                             ref={(el) => (iconRefs.current[index] = el)}
                         >
-                            <LiaExpandSolid size={40} />
+                            <LiaExpandSolidIcon />
                         </div>
                     </button>
 

@@ -1,0 +1,8 @@
+- Icon sizes überprüfen
+- Mobile Bilder padding entfernen
+- CMS anbinden
+- Deals API vtl Slack
+- Kommentare entfernen
+- Code optimieren
+- Tailwind sortieren
+- Vtl Tailwind outsourcing

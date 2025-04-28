@@ -1,4 +1,4 @@
-import { LiaExpandSolid } from "react-icons/lia";
+import { LiaExpandSolidIcon } from "../Icons";
 
 export default function Diashow({ project, openDiashow, setOpenDiashow }) {
     return (
@@ -11,7 +11,7 @@ export default function Diashow({ project, openDiashow, setOpenDiashow }) {
                     onClick={() => setOpenDiashow(false)}
                     className="flex flex-col gap-10 items-center text-accent cursor-pointer"
                 >
-                    <LiaExpandSolid size={40} />
+                    <LiaExpandSolidIcon />
                     <label className="text-white transform -rotate-90 origin-center">
                         CLOSE
                     </label>
